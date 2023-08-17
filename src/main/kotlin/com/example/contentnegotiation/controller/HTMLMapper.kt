@@ -28,7 +28,7 @@ class HTMLMapper {
                                    margin-left:auto;
                                    margin-right:auto;
                                  }
-                                 thead, td {
+                                 th, td {
                                    text-align: center;
                                    padding: 10px;
                                    border:1px solid black;
@@ -48,16 +48,18 @@ class HTMLMapper {
                         table {
                             thead {
                                 tr {
-                                    td { b { +"Base currency"} }
-                                    td { b { +"Quoted currency" } }
-                                    td { b { +"Rate"} }
+                                    th { +"Base currency" }
+                                    th { +"Quoted currency" }
+                                    th { +"Rate" }
                                 }
                             }
-                            exchangeRates.exchangeRates.map {
-                                tr {
-                                    td { +"${it.baseCurrency}" }
-                                    td { +"${it.quotedCurrency}" }
-                                    td { +"${it.rate}" }
+                            tbody {
+                                exchangeRates.exchangeRates.map {
+                                    tr {
+                                        td { +"${it.baseCurrency}" }
+                                        td { +"${it.quotedCurrency}" }
+                                        td { +"${it.rate}" }
+                                    }
                                 }
                             }
                         }
