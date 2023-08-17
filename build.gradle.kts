@@ -23,6 +23,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml")
+	implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.9.1")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

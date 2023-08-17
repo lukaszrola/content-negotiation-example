@@ -1,6 +1,7 @@
 package com.example.contentnegotiation.domain
 
 import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.time.Instant
 import java.util.*
@@ -9,7 +10,7 @@ private val EUR = Currency.getInstance("EUR")
 private val USD = Currency.getInstance("USD")
 private val PLN = Currency.getInstance("PLN")
 
-@Component
+@Service
 class ExchangeRatesService {
     private val exchangeRates: ExchangeRates = ExchangeRates(
         listOf(

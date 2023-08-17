@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/exchange-rates")
-class ExchangeRatesController(private val exchangeRatesService: ExchangeRatesService) {
+class ExchangeRatesController(
+    private val exchangeRatesService: ExchangeRatesService,
+    private val htmlMapper: HTMLMapper
+) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE])
     fun getAllExchangeRates(): ExchangeRatesResponse {
         val exchangeRates = exchangeRatesService.getAllExchangeRates()
@@ -22,5 +25,10 @@ class ExchangeRatesController(private val exchangeRatesService: ExchangeRatesSer
             },
             updatedAt = exchangeRates.updatedAt
         )
+    }
+
+    @GetMapping(produces = [MediaType.TEXT_HTML_VALUE])
+    fun helloHTML(): String {
+        return htmlMapper.mapToHTML(exchangeRatesService.getAllExchangeRates())
     }
 }
